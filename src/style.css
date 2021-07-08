@@ -1,0 +1,49 @@
+body {
+  width: 60%;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 5px;
+  background: radial-gradient(
+    592px at 48.2% 50%,
+    rgba(255, 255, 249, 0.6) 0%,
+    rgb(160, 199, 254) 74.6%
+  );
+}
+.city {
+  border-radius: 9px;
+  border: lightskyblue;
+}
+
+.degrees {
+  font-size: 15px;
+}
+.temp {
+  font-size: 70px;
+}
+.emoji {
+  text-align: center;
+  font-size: 70px;
+}
+.card2 {
+  background: transparent;
+  color: white;
+  text-align: right;
+}
+.card1 {
+  background: transparent;
+  color: white;
+}
+.card {
+  text-align: center;
+}
+.search {
+  background: transparent;
+  border-radius: 5px;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="src/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/35ae85ce2f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <br />
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <form id="search-form">
+            <input
+              class="city"
+              type="text"
+              placeholder="City"
+              autocomplete="off"
+              id="search-text-input"
+            />
+            <input class="search" type="submit" value="Search" /> <br />
+            <div class="card1">
+              <div class="card-body">
+                <h1 class="card-title"></h1>
+                <h3 class="card-text">Monday</h3>
+                <h4 class="card-text">Sunny</h4>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card2" style="width: 18rem">
+          <div class="card-body">
+            <span class="temp" id="temperature"></span>
+            <p class="emoji">🌤</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body" style="font-size: 15px">
+                26°C <br />
+                ☀️ <br />
+                Mon
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body" style="font-size: 15px">
+                26°C <br />
+                ☀️
+                <br />
+                Tue
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body" style="font-size: 15px">
+                27°C <br />
+                ☀️
+                <br />
+                Wed
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body" style="font-size: 15px">
+                26°C <br />
+                ☀️
+                <br />
+                Thu
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body" style="font-size: 15px">
+                28°C <br />
+                ☀️ <br />
+                Fri
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body" style="font-size: 15px">
+                27°C <br />
+                ☀️ <br />
+                Sat
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

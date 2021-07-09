@@ -33,6 +33,8 @@ function showTemp(response) {
   let temp = Math.round(response.data.main.temp);
   let cityTemperature = document.querySelector("#temperature");
   cityTemperature.innerHTML = `${temp}°C|°F`;
+  let description = document.querySelector("#desciption");
+  description.innerHTML = respone.data.weather[0].description;
 }
 //form
 function search() {

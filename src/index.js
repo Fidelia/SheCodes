@@ -29,7 +29,7 @@ h3.innerHTML = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} ${
 //SEARCH CITY
 
 function showTemp(response) {
-  console.log(response);
+  console.log(response.data);
   let temp = Math.round(response.data.main.temp);
   let cityTemperature = document.querySelector("#temperature");
   cityTemperature.innerHTML = `${temp}°C|°F`;

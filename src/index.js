@@ -34,7 +34,7 @@ function showTemp(response) {
   let cityTemperature = document.querySelector("#temperature");
   cityTemperature.innerHTML = `${temp}°C|°F`;
   let h4 = document.querySelector("h4");
-  h4.innerHTML = respone.data.weather[0].description;
+  h4.innerHTML = respone.data.weather[1].description;
 }
 //form
 function search() {

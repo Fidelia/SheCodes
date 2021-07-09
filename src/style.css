@@ -47,3 +47,6 @@ body {
   background: transparent;
   border-radius: 5px;
 }
+.weather {
+  font-size: 40px;
+}

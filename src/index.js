@@ -41,8 +41,8 @@ function search() {
   event.preventDefault();
   let searchInput = document.querySelector("#search-text-input");
   console.log(searchInput.value);
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = `${searchInput.value}`;
+  let h2 = document.querySelector("h2");
+  h2.innerHTML = `${searchInput.value}`;
   let apiKey = "42d452330bfdae27782fbf2b6fe4218a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
 

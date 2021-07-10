@@ -33,8 +33,8 @@ function showTemp(response) {
   let temp = Math.round(response.data.main.temp);
   let cityTemperature = document.querySelector("#temperature");
   cityTemperature.innerHTML = `${temp}°C|°F`;
-  let h4 = document.querySelector("h4");
-  h4.innerHTML = respone.data.main.humidity;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = respone.data.main.humidity;
 }
 //form
 function search() {

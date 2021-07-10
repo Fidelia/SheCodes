@@ -32,9 +32,13 @@ function showTemp(response) {
   console.log(response.data);
   let temp = Math.round(response.data.main.temp);
   let cityTemperature = document.querySelector("#temperature");
-  cityTemperature.innerHTML = `${temp}°C|°F`;
+  cityTemperature.innerHTML = `${temp}`;
   let h4 = document.querySelector("h4");
   h4.innerHTML = respone.data.weather[0].description;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = respone.data.main.humidity;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(respone.data.wind.speed);
 }
 //form
 function search() {

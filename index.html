@@ -41,7 +41,8 @@
               <div class="card-body">
                 <h1></h1>
                 <h3></h3>
-                <h4></h4>
+                <h4>sunny</h4>
+                <p class="emoji">🌤</p>
               </div>
             </div>
           </form>
@@ -49,11 +50,11 @@
         <div class="card2" style="width: 18rem">
           <div class="card-body">
             <span class="temp" id="temperature"></span>
-            <p class="emoji">🌤</p>
+            <span id="units">°C|°F</span>
             <ul>
-              <li>precipitation: 0%</li>
-              <li>Humidity: 72%</li>
-              <li>Wind: 2km/h</li>
+              <li id="precipitation">precipitation: 0%</li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span>km/h</li>
             </ul>
           </div>
         </div>

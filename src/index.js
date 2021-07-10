@@ -75,11 +75,19 @@ function showFahrenheitTemp(event) {
   let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
   cityTemperature.innerHTML = Math.round(fahrenheitTemp);
 }
+function showCelciusTemp(event) {
+  event.preventDefault();
+  let cityTemperature = document.querySelector("#temperature");
+  cityTemperature.innerHTML = Math.round(celciusTemp);
+}
 
 let celciusTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", showCelciusTemp);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);

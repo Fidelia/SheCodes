@@ -33,8 +33,6 @@ function showTemp(response) {
   let temp = Math.round(response.data.main.temp);
   let cityTemperature = document.querySelector("#temperature");
   cityTemperature.innerHTML = `${temp}°C|°F`;
-  let h4 = document.querySelector("h4");
-  h4.innerHTML = respone.data.weather[0].description;
 }
 //form
 function search() {
@@ -43,6 +41,8 @@ function search() {
   console.log(searchInput.value);
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${searchInput.value}`;
+  let h4 = document.querySelector("h4");
+  h4.innerHTML = respone.data.weather[0].description;
   let apiKey = "42d452330bfdae27782fbf2b6fe4218a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
 

@@ -5,7 +5,13 @@ let time = new Date();
 let currentDate = time.getDate();
 let currentYear = time.getFullYear();
 let hours = time.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
 let minutes = time.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 let days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
 let currentDay = days[time.getDay()];
 let months = [
@@ -24,13 +30,16 @@ let months = [
 ];
 let currentMonth = months[time.getMonth()];
 
-h3.innerHTML = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} ${hours}:${minutes}`;
+h3.innerHTML = `${currentDay}, ${currentDate} ${currentMonth} ${currentYear} ${hours}:${minutes}`;
 
 //SEARCH CITY
 
 function showTemp(response) {
   console.log(response.data);
-  let temp = Math.round(response.data.main.temp);
+
+  celciusTemp = response.data.main.temp;
+
+  let temp = Math.round(celciusTemp);
   let cityTemperature = document.querySelector("#temperature");
   cityTemperature.innerHTML = `${temp}`;
   let h4 = document.querySelector("h4");
@@ -52,5 +61,19 @@ function search() {
 
   axios.get(apiUrl).then(showTemp);
 }
+
+//conversion
+function showFahrenheitTemp(event){
+  event.preventDefault();
+  let cityTemperature = document.querySelector("#temperature");
+  let fahrenheitTemp = (temp*9)/5+32;
+  cityTemperature.innerHTML = (Math.round)fahrenheitTemp;
+}
+
+let celciusTemp = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);

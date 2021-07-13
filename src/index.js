@@ -32,6 +32,31 @@ let currentMonth = months[time.getMonth()];
 
 h3.innerHTML = `${currentDay}, ${currentDate} ${currentMonth} ${currentYear} ${hours}:${minutes}`;
 
+//forecast
+
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  forecast.innerHTML = `
+  <div class="row">
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body" style="font-size: 15px">
+                Mon<br />
+                <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  alt=""
+                  id="mon"
+                />
+                <span class="temp-max">26°</span>
+                <span class="temp-min">18°</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  `;
+}
+
 //SEARCH CITY
 
 function showTemp(response) {
@@ -81,6 +106,7 @@ function showCelciusTemp(event) {
   cityTemperature.innerHTML = Math.round(celciusTemp);
 }
 
+displayForecast();
 let celciusTemp = null;
 
 let form = document.querySelector("#search-form");

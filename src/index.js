@@ -34,15 +34,18 @@ h3.innerHTML = `${currentDay}, ${currentDate} ${currentMonth} ${currentYear} ${h
 
 //forecast
 
-function displayForecast() {
+function displayForecast(response) {
   let forecast = document.querySelector("#forecast");
-
-  forecast.innerHTML = `
-  <div class="row">
+  let forecastHTML = `<div class="row">`;
+  let days = ["mon", "tue", "wed"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
           <div class="col-2">
             <div class="card">
               <div class="card-body" style="font-size: 15px">
-                Mon<br />
+                ${day}<br />
                 <img
                   src="http://openweathermap.org/img/wn/10d@2x.png"
                   alt=""
@@ -53,12 +56,21 @@ function displayForecast() {
               </div>
             </div>
           </div>
-        </div>
         <br/>
   `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
 }
 
 //SEARCH CITY
+
+function getForecast(coordinates) {
+  let apiKey = "42d452330bfdae27782fbf2b6fe4218a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showTemp(response) {
   console.log(response.data);
@@ -80,6 +92,8 @@ function showTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 //form
 function search() {
@@ -88,7 +102,6 @@ function search() {
   console.log(searchInput.value);
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${searchInput.value}`;
-  let apiKey = "42d452330bfdae27782fbf2b6fe4218a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showTemp);
@@ -106,8 +119,6 @@ function showCelciusTemp(event) {
   let cityTemperature = document.querySelector("#temperature");
   cityTemperature.innerHTML = Math.round(celciusTemp);
 }
-
-displayForecast();
 let celciusTemp = null;
 
 let form = document.querySelector("#search-form");

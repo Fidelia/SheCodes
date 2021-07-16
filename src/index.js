@@ -35,24 +35,26 @@ h3.innerHTML = `${currentDay}, ${currentDate} ${currentMonth} ${currentYear} ${h
 //forecast
 
 function displayForecast(response) {
+  let ForecastWeather = response.data.daily;
+
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["mon", "tue", "wed"];
-  days.forEach(function (day) {
+  ForecastWeather.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
           <div class="col-2">
             <div class="card">
               <div class="card-body" style="font-size: 15px">
-                ${day}<br />
+                ${forecastDay.dt}<br />
                 <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
                   alt=""
                   id="mon"
                 />
-                <span class="temp-max">26°</span>
-                <span class="temp-min">18°</span>
+                <span class="temp-max">${forecastDay.temp.max}</span>
+                <span class="temp-min">${forecastDay.temp.min}</span>
               </div>
             </div>
           </div>

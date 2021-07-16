@@ -54,6 +54,7 @@ function displayForecast() {
             </div>
           </div>
         </div>
+        <br/>
   `;
 }
 

@@ -32,6 +32,14 @@ let currentMonth = months[time.getMonth()];
 
 h3.innerHTML = `${currentDay}, ${currentDate} ${currentMonth} ${currentYear} ${hours}:${minutes}`;
 
+function formatDay(timestamp) {
+  let Date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  let weekdays = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+
 //forecast
 
 function displayForecast(response) {
@@ -39,7 +47,6 @@ function displayForecast(response) {
 
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["mon", "tue", "wed"];
   ForecastWeather.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
@@ -47,9 +54,11 @@ function displayForecast(response) {
           <div class="col-2">
             <div class="card">
               <div class="card-body" style="font-size: 15px">
-                ${forecastDay.dt}<br />
+                ${formatDay(forecastDay.dt)}<br />
                 <img
-                  src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+                  src="http://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png"
                   alt=""
                   id="mon"
                 />
@@ -98,8 +107,9 @@ function showTemp(response) {
   getForecast(response.data.coord);
 }
 //form
-function search() {
+function search(event) {
   event.preventDefault();
+  let apiKey = "42d452330bfdae27782fbf2b6fe4218a";
   let searchInput = document.querySelector("#search-text-input");
   console.log(searchInput.value);
   let h1 = document.querySelector("h1");

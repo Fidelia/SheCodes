@@ -24,13 +24,22 @@ body {
 .degrees {
   font-size: 15px;
 }
+
+.fahrenheit {
+  text-decoration: none;
+  color: white;
+}
+.celcius {
+  text-decoration: none;
+  color: white;
+}
 .temp {
   font-size: 50px;
 }
-.emoji {
-  text-align: center;
-  font-size: 70px;
+.temp-min {
+  opacity: 0.6;
 }
+
 .card2 {
   background: transparent;
   color: white;

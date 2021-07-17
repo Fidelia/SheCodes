@@ -72,7 +72,6 @@ function displayForecast(response) {
               </div>
             </div>
           </div>
-        <br/>
   `;
     }
   });
@@ -147,3 +146,5 @@ celciusLink.addEventListener("click", showCelciusTemp);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+search("london");

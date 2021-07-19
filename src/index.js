@@ -114,13 +114,15 @@ function showTemp(response) {
 //form
 function search(event) {
   event.preventDefault();
-  let apiKey = "42d452330bfdae27782fbf2b6fe4218a";
   let searchInput = document.querySelector("#search-text-input");
   console.log(searchInput.value);
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${searchInput.value}`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
-
+  searchCity(searchInput.value);
+}
+function searchCity(city) {
+  let apiKey = "42d452330bfdae27782fbf2b6fe4218a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }
 
@@ -147,4 +149,4 @@ celciusLink.addEventListener("click", showCelciusTemp);
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
-search("london");
+searchCity("london");
